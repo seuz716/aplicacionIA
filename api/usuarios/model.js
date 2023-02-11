@@ -16,11 +16,11 @@ async function getDbConnection() {
 async function findAll() {
   try {
     const db = await getDbConnection();
-    const usersPlants = await db
-      .collection("usersPlants")
+    const usuarios = await db
+      .collection("usuarios")
       .find({})
       .toArray();
-    return usersPlants;
+    return usuarios;
   } catch (error) {
     console.error(error);
     return [];
@@ -31,7 +31,7 @@ async function getOne(id) {
   try {
     const db = await getDbConnection();
     const userPlant = await db
-      .collection("usersPlants")
+      .collection("usuarios")
       .findOne({ _id: ObjectId(id) });
     return userPlant;
   } catch (error) {
@@ -44,7 +44,7 @@ async function obtenerPorNombre(username) {
   try {
     const db = await getDbConnection();
     const user = await db
-      .collection("usersPlants")
+      .collection("usuarios")
       .findOne({ username });
     return user;
   } catch (error) {
@@ -53,12 +53,12 @@ async function obtenerPorNombre(username) {
   }
 }
 
-async function createOne(userData) {
+async function createOne(datosUsuario) {
   try {
     const db = await getDbConnection();
     const result = await db
-      .collection("usersPlants")
-      .insertOne(userData);
+      .collection("usuarios")
+      .insertOne(datosUsuario);
     return result;
   } catch (error) {
     console.error(error);
@@ -66,12 +66,12 @@ async function createOne(userData) {
   }
 }
 
-async function updateOne(id, updatedData) {
+async function updateOne(id, datos) {
   try {
     const db = await getDbConnection();
     const result = await db
-      .collection("usersPlants")
-      .updateOne({ _id: ObjectId(id) }, { $set: updatedData });
+      .collection("usuarios")
+      .updateOne({ _id: ObjectId(id) }, { $set: datos });
     return result;
   } catch (error) {
     console.error(error);
@@ -83,7 +83,7 @@ async function deleteOne(id) {
   try {
     const db = await getDbConnection();
     const result = await db
-      .collection("usersPlants")
+      .collection("usuarios")
       .deleteOne({ _id: ObjectId(id) });
     return result;
   } catch (error) {
@@ -92,13 +92,13 @@ async function deleteOne(id) {
   }
 }
 
-async function buscarUsuario(nombre) {
-let db = basedatos.obtenerConexion();
-return await db.collection("users").findOne({ usuario: nombre });
+async function buscarUsuario(usuario) {
+  let db = basedatos.obtenerConexion();
+  return await db.collection("users").findOne({ usuario: usuario });
 }
 
-async function comprobarExistenciaUsuario(nombre) {
-let usuario = await buscarUsuario(nombre);
+async function comprobarExistenciaUsuario(datos) {
+let usuario = await buscarUsuario(datos);
 return usuario ? true : false;
 }
 

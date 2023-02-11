@@ -12,7 +12,7 @@ const conectar = function () {
         mongoClient.connect("mongodb+srv://cesar:cesar@cluster0.wtlfm.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true })
         .then(function (client) {
           // Asignar la conexión a la base de datos a la variable conexion
-          conexion = client.db("IA");
+          conexion = client.db("cesar");
           console.log("Conexión a la base de datos realizada con éxito");
           resolve();
         })

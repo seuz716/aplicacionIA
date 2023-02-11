@@ -7,7 +7,7 @@ function generarToken(datos) {
     const payload = {
         id: datos._id,
         usuario: datos.usuario,
-        roles: datos.roles
+        clave: datos.clave
     };
 
     const token = jwt.sign(payload, process.env.JWT_CLAVE, {

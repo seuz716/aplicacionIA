@@ -1,7 +1,7 @@
 {
-  "name": "projectia",
+  "name": "projectoIA",
   "version": "1.0.0",
-  "description": "proyecto de IA",
+  "description": "proyecto de IA para traduccion  de textos usando ChatGTP y tensorflow ",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,6 +23,7 @@
     "helmet": "^6.0.1",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.0.1",
+    "mongoose": "^6.9.1",
     "morgan": "^1.10.0",
     "ncrypt": "^1.0.7",
     "node-fetch": "^3.2.6",
